@@ -26,8 +26,7 @@ public enum STATES
 {
     standing,
     crouching,
-    jumping,
-    attacking
+    jumping
 }
 
 public enum SPECIALS
