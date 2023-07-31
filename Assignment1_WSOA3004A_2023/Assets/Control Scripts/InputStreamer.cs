@@ -1,8 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum INPUTS
 {
@@ -54,6 +53,15 @@ public class InputStreamer : MonoBehaviour
 
     public TextMeshProUGUI special;
 
+    public Vector2 directionInput;
+    public InputActionReference dir;
+    public InputActionReference LP;
+    public InputActionReference MP;
+    public InputActionReference HP;
+    public InputActionReference LK;
+    public InputActionReference MK;
+    public InputActionReference HK;
+
 
     private void Awake()
     {
@@ -92,48 +100,46 @@ public class InputStreamer : MonoBehaviour
     {
         if (facingRight)
         {
-            if (Input.GetKey(KeyCode.S) && readInput == true)
-            {
-                InputReader(INPUTS.d);
-            }
-            if (Input.GetKey(KeyCode.D) && readInput == true)
-            {
-                InputReader(INPUTS.f);
-            }
-            if (Input.GetKey(KeyCode.A) && readInput == true)
-            {
-                InputReader(INPUTS.b);
-            }
-            if (Input.GetKeyDown(KeyCode.W) && readInput == true)
-            {
-                InputReader(INPUTS.u);
-            }
+            directionInput = dir.action.ReadValue<Vector2>();
+            Debug.Log(directionInput.y);
+        }
+        else
+        {
+            directionInput = dir.action.ReadValue<Vector2>();
+            directionInput = new Vector2(directionInput.x * -1, directionInput.y);
+        }
 
-            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A) && readInput == true)
-            {
-                InputReader(INPUTS.db);
-            }
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S) && readInput == true)
-            {
-                InputReader(INPUTS.df);
-            }
-            if (Input.GetKeyDown(KeyCode.D) && Input.GetKeyDown(KeyCode.W) && readInput == true)
-            {
-                InputReader(INPUTS.uf);
-            }
-            if (Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.A) && readInput == true)
-            {
-                InputReader(INPUTS.ub);
-            }
-
-            if (Input.GetKeyDown(KeyCode.I) && readInput == true)
-            {
-                InputReader(INPUTS.lp);
-            }
-            if (Input.GetKeyDown(KeyCode.J) && readInput == true)
-            {
-                InputReader(INPUTS.lk);
-            }
+        if (directionInput == new Vector2(-0.707107f, 0.707107f))
+        {
+            InputReader(INPUTS.ub);
+        }
+        else if (directionInput == new Vector2(0.707107f, 0.707107f))
+        {
+            InputReader(INPUTS.uf);
+        }
+        else if (directionInput == new Vector2(-0.707107f, -0.707107f))
+        {
+            InputReader(INPUTS.db);
+        }
+        else if (directionInput == new Vector2(0.707107f, -0.707107f))
+        {
+            InputReader(INPUTS.df);
+        }
+        else if (directionInput == Vector2.up)
+        {
+            InputReader(INPUTS.u);
+        }
+        else if (directionInput == Vector2.down)
+        {
+            InputReader(INPUTS.d);
+        }
+        else if (directionInput == Vector2.left)
+        {
+            InputReader(INPUTS.b);
+        }
+        else if (directionInput == Vector2.right)
+        {
+            InputReader(INPUTS.f);
         }
     }
 

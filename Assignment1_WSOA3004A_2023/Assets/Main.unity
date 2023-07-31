@@ -481,7 +481,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 32
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1272,6 +1272,7 @@ GameObject:
   - component: {fileID: 1511711708}
   - component: {fileID: 1511711710}
   - component: {fileID: 1511711711}
+  - component: {fileID: 1511711712}
   m_Layer: 0
   m_Name: InputStreamer
   m_TagString: Untagged
@@ -1297,6 +1298,14 @@ MonoBehaviour:
   facingRight: 1
   charState: 0
   special: {fileID: 1668759705}
+  directionInput: {x: 0, y: 0}
+  dir: {fileID: -7499350415444103485, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
+  LP: {fileID: 2026613817334367238, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
+  MP: {fileID: 115188763443195623, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
+  HP: {fileID: -5834280373618896304, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
+  LK: {fileID: 6265633528169594925, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
+  MK: {fileID: -95555629457584442, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
+  HK: {fileID: 5275605039465247285, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
 --- !u!4 &1511711709
 Transform:
   m_ObjectHideFlags: 0
@@ -1339,6 +1348,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsText: {fileID: 1102609726}
+--- !u!114 &1511711712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511711707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5b43b80ba9317624089138e3e9465291, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Player Control
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 519420031}
 --- !u!1 &1524594745
 GameObject:
   m_ObjectHideFlags: 0
