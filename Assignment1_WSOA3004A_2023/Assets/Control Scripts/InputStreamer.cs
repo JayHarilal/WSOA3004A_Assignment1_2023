@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -141,6 +142,55 @@ public class InputStreamer : MonoBehaviour
         {
             InputReader(INPUTS.f);
         }
+    }
+
+    private void LPunch(InputAction.CallbackContext call)
+    {
+        InputReader(INPUTS.lp);
+    }
+    private void LKick(InputAction.CallbackContext call)
+    {
+        InputReader(INPUTS.lk);
+    }
+
+    private void OnEnable()
+    {
+        LP.action.started += LPunch;
+        LK.action.started += LKick;
+        MP.action.started += MPunch;
+        MK.action.started += MKick;
+        HP.action.started += HPunch;
+        HK.action.started += HKick;
+    }
+
+    private void MKick(InputAction.CallbackContext obj)
+    {
+        InputReader(INPUTS.mk);
+    }
+
+    private void MPunch(InputAction.CallbackContext obj)
+    {
+        InputReader(INPUTS.mp);
+    }
+
+    private void OnDisable()
+    {
+        LP.action.started -= LPunch;
+        LK.action.started -= LKick;
+        MP.action.started -= MPunch;
+        MK.action.started -= MKick;
+        HP.action.started -= HPunch;
+        HK.action.started -= HKick;
+    }
+
+    private void HKick(InputAction.CallbackContext obj)
+    {
+        InputReader(INPUTS.hk);
+    }
+
+    private void HPunch(InputAction.CallbackContext obj)
+    {
+        InputReader(INPUTS.hp);
     }
 
     public void SpecialValidation()
