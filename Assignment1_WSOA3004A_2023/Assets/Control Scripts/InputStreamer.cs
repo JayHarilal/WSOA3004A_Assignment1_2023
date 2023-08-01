@@ -102,7 +102,6 @@ public class InputStreamer : MonoBehaviour
         if (facingRight)
         {
             directionInput = dir.action.ReadValue<Vector2>();
-            Debug.Log(directionInput.y);
         }
         else
         {
@@ -198,55 +197,57 @@ public class InputStreamer : MonoBehaviour
         if (charState == STATES.standing && readInput) // test only if in valid state and inputs are read
             for (int i = 0; i < inputHistory.Count; i++)
             {
+                // needs redoing
+
                 #region shoryuken / hadoken
-                if (inputHistory[i] == INPUTS.lp && i >= 3)
-                {
-                    if (inputHistory[i - 3] == INPUTS.f && inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.f)
-                    {
-                        inputHistory.RemoveAt(inputHistory.Count - 1);
-                        clearTimers.RemoveAt(inputHistory.Count - 1);
-                        animLength = 90;
-                        anim = SPECIALS.shoryuken;
-                        animLock = new FrameTimer(animLength, OnAnimComplete);
-                        readInput = false;
-                    }
-                    else if (inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.f)
-                    {
-                        inputHistory.RemoveAt(inputHistory.Count - 1);
-                        clearTimers.RemoveAt(inputHistory.Count - 1);
-                        animLength = 30;
-                        anim = SPECIALS.hadoken;
-                        animLock = new FrameTimer(animLength, OnAnimComplete);
-                        readInput = false;
-                    }
-                }
-                else if (inputHistory[i] == INPUTS.lp && i == 2)
-                {
-                    if (inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.f)
-                    {
-                        inputHistory.RemoveAt(inputHistory.Count - 1);
-                        clearTimers.RemoveAt(inputHistory.Count - 1);
-                        animLength = 30;
-                        anim = SPECIALS.hadoken;
-                        animLock = new FrameTimer(animLength, OnAnimComplete);
-                        readInput = false;
-                    }
-                }
+                //if (inputHistory[i] == INPUTS.lp && i >= 3)
+                //{
+                //    if (inputHistory[i - 3] == INPUTS.f && inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.f)
+                //    {
+                //        inputHistory.RemoveAt(inputHistory.Count - 1);
+                //        clearTimers.RemoveAt(inputHistory.Count - 1);
+                //        animLength = 90;
+                //        anim = SPECIALS.shoryuken;
+                //        animLock = new FrameTimer(animLength, OnAnimComplete);
+                //        readInput = false;
+                //    }
+                //    else if (inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.f)
+                //    {
+                //        inputHistory.RemoveAt(inputHistory.Count - 1);
+                //        clearTimers.RemoveAt(inputHistory.Count - 1);
+                //        animLength = 30;
+                //        anim = SPECIALS.hadoken;
+                //        animLock = new FrameTimer(animLength, OnAnimComplete);
+                //        readInput = false;
+                //    }
+                //}
+                //else if (inputHistory[i] == INPUTS.lp && i == 2)
+                //{
+                //    if (inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.f)
+                //    {
+                //        inputHistory.RemoveAt(inputHistory.Count - 1);
+                //        clearTimers.RemoveAt(inputHistory.Count - 1);
+                //        animLength = 30;
+                //        anim = SPECIALS.hadoken;
+                //        animLock = new FrameTimer(animLength, OnAnimComplete);
+                //        readInput = false;
+                //    }
+                //}
                 #endregion
 
                 #region tatsumaki
-                if (inputHistory[i] == INPUTS.lk && i >= 2)
-                {
-                    if (inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.b)
-                    {
-                        inputHistory.RemoveAt(inputHistory.Count - 1);
-                        clearTimers.RemoveAt(inputHistory.Count - 1);
-                        animLength = 120;
-                        anim = SPECIALS.tatsumaki;
-                        animLock = new FrameTimer(animLength, OnAnimComplete);
-                        readInput = false;
-                    }
-                }
+                //if (inputHistory[i] == INPUTS.lk && i >= 2)
+                //{
+                //    if (inputHistory[i - 2] == INPUTS.d && inputHistory[i - 1] == INPUTS.b)
+                //    {
+                //        inputHistory.RemoveAt(inputHistory.Count - 1);
+                //        clearTimers.RemoveAt(inputHistory.Count - 1);
+                //        animLength = 120;
+                //        anim = SPECIALS.tatsumaki;
+                //        animLock = new FrameTimer(animLength, OnAnimComplete);
+                //        readInput = false;
+                //    }
+                //}
                 #endregion
             }
     }

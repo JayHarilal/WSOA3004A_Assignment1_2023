@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 156b712e5799dc94ca7bafe6928428d1
+guid: 7cfc268514ccfd34096a455d3c459532
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -123,12 +123,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_0
+      name: tatsu_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 8
-        width: 18
+        x: 24
+        y: 16
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4265cde5d6fd7545be0d270e71a45c6
+      internalID: 1629006388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tatsu_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 23
+        width: 17
         height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a2897af9d42404498141a5379c7eea
-      internalID: 1430983867
+      spriteID: 7153a2d93749ef74cb46960b559c5d40
+      internalID: -288554463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_1
+      name: tatsu_2
       rect:
         serializedVersion: 2
-        x: 25
-        y: 7
-        width: 17
-        height: 28
+        x: 74
+        y: 27
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dba3b01a8793f84ca6562366f557294
-      internalID: 1986517319
+      spriteID: a9f6f6eb322f587428749e4716e5770f
+      internalID: -1114784046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_2
+      name: tatsu_3
       rect:
         serializedVersion: 2
-        x: 47
-        y: 7
-        width: 17
-        height: 29
+        x: 98
+        y: 17
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,61 +200,82 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 049fbe282feccc644b50c5906c388afe
-      internalID: 37659232
+      spriteID: 4fafa602f08bbc7438fbdb9b4f2ccca5
+      internalID: -5208184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_3
+      name: tatsu_4
       rect:
         serializedVersion: 2
-        x: 69
-        y: 8
-        width: 17
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 573703383ea6aab46a0968bcb3cfd5fb
-      internalID: 527188071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_4
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 7
-        width: 17
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02fd0f29bca928946a601f805207ab07
-      internalID: -1569535472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_5
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 7
+        x: 134
+        y: 19
         width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8c627d6e4e2e34abd363fa384f6fd8
+      internalID: 147842363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tatsu_5
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 19
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da8de43505b62c4d83d01fe80e8744b
+      internalID: -1558153799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tatsu_6
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 19
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8882902fd51d440b407cc2c474b095
+      internalID: -684684962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tatsu_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 12
+        width: 17
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -242,8 +284,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34d00301ef6ca5d409a80542cca4189f
-      internalID: 1391751965
+      spriteID: 0d2c5fb77639cfd478cb1e55ff353829
+      internalID: -1494815517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tatsu_8
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 8
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df598d3259a43d499c09425ecfc4cb1
+      internalID: 39698197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tatsu_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 6
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42730d77fd89d264b9ab91c8b2497d4f
+      internalID: 1397882543
       vertices: []
       indices: 
       edges: []
@@ -259,12 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idle_0: 1430983867
-      idle_1: 1986517319
-      idle_2: 37659232
-      idle_3: 527188071
-      idle_4: -1569535472
-      idle_5: 1391751965
+      tatsu_0: 1629006388
+      tatsu_1: -288554463
+      tatsu_2: -1114784046
+      tatsu_3: -5208184
+      tatsu_4: 147842363
+      tatsu_5: -1558153799
+      tatsu_6: -684684962
+      tatsu_7: -1494815517
+      tatsu_8: 39698197
+      tatsu_9: 1397882543
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

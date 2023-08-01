@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 156b712e5799dc94ca7bafe6928428d1
+guid: 49d7251c4749a174bb5f02139a581d33
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_0
+      name: upjump_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 8
-        width: 18
+        y: 5
+        width: 16
         height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,18 +137,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a2897af9d42404498141a5379c7eea
-      internalID: 1430983867
+      spriteID: 97f7dfdcc53dd004eb78fc72d5313dd1
+      internalID: 1569984258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_1
+      name: upjump_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 22
         y: 7
+        width: 18
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3b98d91802a1441859af19ee613dd2
+      internalID: 1079092285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upjump_2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 16
         width: 17
         height: 28
       alignment: 0
@@ -158,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dba3b01a8793f84ca6562366f557294
-      internalID: 1986517319
+      spriteID: 7c526daf229ed4c439de7a2b1c135fb0
+      internalID: 1425416255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_2
+      name: upjump_3
       rect:
         serializedVersion: 2
-        x: 47
-        y: 7
-        width: 17
-        height: 29
+        x: 64
+        y: 21
+        width: 18
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 049fbe282feccc644b50c5906c388afe
-      internalID: 37659232
+      spriteID: ed138ebaaa3a29a41a9822262ca95dc6
+      internalID: -1241378565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_3
+      name: upjump_4
       rect:
         serializedVersion: 2
-        x: 69
-        y: 8
-        width: 17
-        height: 28
+        x: 86
+        y: 21
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573703383ea6aab46a0968bcb3cfd5fb
-      internalID: 527188071
+      spriteID: 22d085635b7b06a40910f902bf8ac62e
+      internalID: -792037428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_4
+      name: upjump_5
       rect:
         serializedVersion: 2
-        x: 91
-        y: 7
-        width: 17
-        height: 29
+        x: 104
+        y: 17
+        width: 15
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02fd0f29bca928946a601f805207ab07
-      internalID: -1569535472
+      spriteID: aaea3d8a6e3b7d74e95f0715eed2406e
+      internalID: 136364300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_5
+      name: upjump_6
       rect:
         serializedVersion: 2
-        x: 114
-        y: 7
-        width: 16
-        height: 30
+        x: 122
+        y: 6
+        width: 18
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34d00301ef6ca5d409a80542cca4189f
-      internalID: 1391751965
+      spriteID: 73a5cb05fa0bc0f498b832c771c3220c
+      internalID: -1148519442
       vertices: []
       indices: 
       edges: []
@@ -259,12 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idle_0: 1430983867
-      idle_1: 1986517319
-      idle_2: 37659232
-      idle_3: 527188071
-      idle_4: -1569535472
-      idle_5: 1391751965
+      upjump_0: 1569984258
+      upjump_1: 1079092285
+      upjump_2: 1425416255
+      upjump_3: -1241378565
+      upjump_4: -792037428
+      upjump_5: 136364300
+      upjump_6: -1148519442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
