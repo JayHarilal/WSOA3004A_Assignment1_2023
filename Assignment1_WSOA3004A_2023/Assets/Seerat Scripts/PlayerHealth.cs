@@ -13,8 +13,6 @@ public class PlayerHealth : MonoBehaviour
         // Initialize player's health at maximum value
         currentHealth = maxHealth;
 
-        // Update the health slider with the initial health value
-        UpdateHealthSlider();
     }
 
     public void TakeDamage(int damageAmount)
@@ -29,14 +27,13 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 0;
             Debug.Log("Player is defeated!");
         }
-
-        // Update the health slider
-        UpdateHealthSlider();
     }
 
-    void UpdateHealthSlider()
+    private void Update()
     {
+        if (currentHealth >= maxHealth)
+            currentHealth = maxHealth;
         // Update the slider value based on current health and maximum health
-        healthSlider.value = (float)currentHealth / maxHealth;
+        healthSlider.value = currentHealth;
     }
 }
