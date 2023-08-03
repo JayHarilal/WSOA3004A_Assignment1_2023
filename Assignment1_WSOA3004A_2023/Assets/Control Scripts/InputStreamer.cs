@@ -29,11 +29,17 @@ public enum STATES
     jumping
 }
 
-public enum SPECIALS
+public enum ATTACKS
 {
     shoryuken,
     tatsumaki,
     hadoken,
+    standpunch,
+    standkick,
+    jumppunch,
+    jumpkick,
+    crouchpunch,
+    crouchkick,
     none
 }
 
@@ -44,7 +50,7 @@ public class InputStreamer : MonoBehaviour
 
     private FrameTimer animLock; // timer which locks control until end of attack
 
-    private SPECIALS anim = SPECIALS.none; // stores which special is being used
+    public ATTACKS anim = ATTACKS.none; // stores which special is being used
 
     public int animLength = 0; // stores length of animation in frames for timer
 
@@ -62,7 +68,7 @@ public class InputStreamer : MonoBehaviour
     public InputActionReference LK;
     public InputActionReference MK;
     public InputActionReference HK;
-
+    private bool recovery = false;
 
     private void Awake()
     {
@@ -85,7 +91,7 @@ public class InputStreamer : MonoBehaviour
     {
         Debug.Log($"[Animation: {anim}] OnComplete Timer Callback");
         readInput = true; // return control to player
-        anim = SPECIALS.none;
+        anim = ATTACKS.none;
         animLength = 0; // reset
 
     }
@@ -140,12 +146,20 @@ public class InputStreamer : MonoBehaviour
         else if (directionInput == Vector2.right)
         {
             InputReader(INPUTS.f);
+
         }
     }
 
     private void LPunch(InputAction.CallbackContext call)
     {
         InputReader(INPUTS.lp);
+        if (charState == STATES.standing && !recovery)
+        {
+            anim = ATTACKS.standpunch;
+            animLength = 20;
+            animLock = new FrameTimer(animLength, OnAnimComplete);
+            readInput = false;
+        }
     }
     private void LKick(InputAction.CallbackContext call)
     {
@@ -174,12 +188,14 @@ public class InputStreamer : MonoBehaviour
 
     private void OnDisable()
     {
+        recovery = true;
         LP.action.started -= LPunch;
         LK.action.started -= LKick;
         MP.action.started -= MPunch;
         MK.action.started -= MKick;
         HP.action.started -= HPunch;
         HK.action.started -= HKick;
+        recovery = false;
     }
 
     private void HKick(InputAction.CallbackContext obj)

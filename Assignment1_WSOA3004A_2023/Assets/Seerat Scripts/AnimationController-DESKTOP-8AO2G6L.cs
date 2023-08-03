@@ -21,11 +21,17 @@ public class AnimationController : MonoBehaviour
     private const int JumpingLightKickState = 12;
     private const int ShoryukenState = 13;
     private const int HadokenState = 14;
-    private const int TatsumakiSempuukyakuState = 15;
+    private const int TatsumakiState = 15;
+
+
+
+    
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
+        animator.Play("FORWARDJUMP");
     }
 
     // Call this function to play the Idle animation
@@ -136,7 +142,7 @@ public class AnimationController : MonoBehaviour
     // Call this function to play the Tatsumaki Sempuukyaku animation
     public void PlayTatsumakiSempuukyakuAnimation()
     {
-        animator.SetInteger("AnimationState", TatsumakiSempuukyakuState);
+        animator.SetInteger("AnimationState", TatsumakiState);
         Debug.Log("playing TatsumakiSempuukyaku animation");
     }
 }
