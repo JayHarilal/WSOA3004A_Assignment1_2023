@@ -5,7 +5,7 @@ public class SceneChangeAfterDelay : MonoBehaviour
 {
     public string sceneNameToLoad; // The name of the scene to load after the delay
 
-    public float delayInSeconds = 5f; // The delay time before changing the scene
+    public float delayInSeconds = 2.5f; // The delay time before changing the scene
 
     // Start is called before the first frame update
     void Start()
