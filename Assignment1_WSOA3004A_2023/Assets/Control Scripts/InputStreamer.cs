@@ -68,7 +68,6 @@ public class InputStreamer : MonoBehaviour
     public InputActionReference LK;
     public InputActionReference MK;
     public InputActionReference HK;
-    private bool recovery = false;
 
     private void Awake()
     {
@@ -153,7 +152,7 @@ public class InputStreamer : MonoBehaviour
     private void LPunch(InputAction.CallbackContext call)
     {
         InputReader(INPUTS.lp);
-        if (charState == STATES.standing && !recovery)
+        if (charState == STATES.standing)
         {
             anim = ATTACKS.standpunch;
             animLength = 20;
@@ -188,14 +187,12 @@ public class InputStreamer : MonoBehaviour
 
     private void OnDisable()
     {
-        recovery = true;
         LP.action.started -= LPunch;
         LK.action.started -= LKick;
         MP.action.started -= MPunch;
         MK.action.started -= MKick;
         HP.action.started -= HPunch;
         HK.action.started -= HKick;
-        recovery = false;
     }
 
     private void HKick(InputAction.CallbackContext obj)

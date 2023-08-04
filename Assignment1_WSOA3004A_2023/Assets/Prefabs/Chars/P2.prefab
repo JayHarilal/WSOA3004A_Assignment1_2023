@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947365816462711811, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.84
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7947365816462711811, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65,7 +65,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 340753442090528546, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 1582404225673755484, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 1608420785171321903, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 6122942139961400310, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 2421913815260255974, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 3535971795352342991, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 6386816759172398756, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 7443771920700049647, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 7356696553334448002, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 3100748547809508753, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 2581580148083799927, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 4624299921373089978, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 8533352304896187670, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 7848621267504671914, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+    - {fileID: 425760793879026566, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5174261504761518727, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
@@ -90,7 +105,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 7fec69681509df84bb864bb2f85a69d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

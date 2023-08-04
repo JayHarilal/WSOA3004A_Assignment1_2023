@@ -16,13 +16,6 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        // Check if both characters exist
-        if (character1 == null || character2 == null)
-        {
-            Debug.LogWarning("Both characters are not set!");
-            return;
-        }
-
         // Calculate the average position of both characters
         Vector3 averagePosition = (character1.position + character2.position) / 2f;
 
