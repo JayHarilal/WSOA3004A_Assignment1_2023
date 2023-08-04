@@ -89,6 +89,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""3cdec6b6-2ddd-4642-b95b-7d857405a8ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -388,6 +397,28 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""HeavyKick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f93ed1d-d10f-4e0e-a112-b6db2e1e5add"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""QuitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc490ef8-b339-40b9-a93f-c9da71aa7127"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Pad"",
+                    ""action"": ""QuitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -426,6 +457,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_PlayerControl_LightKick = m_PlayerControl.FindAction("LightKick", throwIfNotFound: true);
         m_PlayerControl_MedKick = m_PlayerControl.FindAction("MedKick", throwIfNotFound: true);
         m_PlayerControl_HeavyKick = m_PlayerControl.FindAction("HeavyKick", throwIfNotFound: true);
+        m_PlayerControl_QuitGame = m_PlayerControl.FindAction("QuitGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -494,6 +526,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControl_LightKick;
     private readonly InputAction m_PlayerControl_MedKick;
     private readonly InputAction m_PlayerControl_HeavyKick;
+    private readonly InputAction m_PlayerControl_QuitGame;
     public struct PlayerControlActions
     {
         private @InputController m_Wrapper;
@@ -505,6 +538,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @LightKick => m_Wrapper.m_PlayerControl_LightKick;
         public InputAction @MedKick => m_Wrapper.m_PlayerControl_MedKick;
         public InputAction @HeavyKick => m_Wrapper.m_PlayerControl_HeavyKick;
+        public InputAction @QuitGame => m_Wrapper.m_PlayerControl_QuitGame;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -535,6 +569,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @HeavyKick.started += instance.OnHeavyKick;
             @HeavyKick.performed += instance.OnHeavyKick;
             @HeavyKick.canceled += instance.OnHeavyKick;
+            @QuitGame.started += instance.OnQuitGame;
+            @QuitGame.performed += instance.OnQuitGame;
+            @QuitGame.canceled += instance.OnQuitGame;
         }
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
@@ -560,6 +597,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @HeavyKick.started -= instance.OnHeavyKick;
             @HeavyKick.performed -= instance.OnHeavyKick;
             @HeavyKick.canceled -= instance.OnHeavyKick;
+            @QuitGame.started -= instance.OnQuitGame;
+            @QuitGame.performed -= instance.OnQuitGame;
+            @QuitGame.canceled -= instance.OnQuitGame;
         }
 
         public void RemoveCallbacks(IPlayerControlActions instance)
@@ -604,5 +644,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnLightKick(InputAction.CallbackContext context);
         void OnMedKick(InputAction.CallbackContext context);
         void OnHeavyKick(InputAction.CallbackContext context);
+        void OnQuitGame(InputAction.CallbackContext context);
     }
 }

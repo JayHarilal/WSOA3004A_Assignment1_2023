@@ -49,6 +49,9 @@ public class InputStreamer : MonoBehaviour
     public List<FrameTimer> clearTimers = new List<FrameTimer>(); // list of timers for each input in history list
 
     private FrameTimer animLock; // timer which locks control until end of attack
+    public bool jumping = false;
+    public FrameTimer jumpTimer;
+    public CharacterAnimation charAni;
 
     public ATTACKS anim = ATTACKS.none; // stores which special is being used
 
@@ -85,6 +88,11 @@ public class InputStreamer : MonoBehaviour
         clearTimers.RemoveAt(0); // remove relevent timer from list 
     }
 
+    public void OnJumpComplete()
+    {
+        charAni.character.SetInteger("state", 0);
+        jumping = false;
+    }
 
     private void OnAnimComplete()
     {
@@ -158,57 +166,75 @@ public class InputStreamer : MonoBehaviour
             animLength = 20;
             animLock = new FrameTimer(animLength, OnAnimComplete);
             readInput = false;
+            charAni.character.SetTrigger("punch");
+        }
+        else if (charState == STATES.jumping)
+        {
+            anim = ATTACKS.jumppunch;
+            animLength = 25;
+            animLock = new FrameTimer(animLength, OnAnimComplete);
+            readInput = false;
+            charAni.character.SetTrigger("punch");
+        }
+        else if (charState == STATES.crouching)
+        {
+            anim = ATTACKS.crouchpunch;
+            animLength = 24;
+            animLock = new FrameTimer(animLength, OnAnimComplete);
+            readInput = false;
+            charAni.character.SetTrigger("punch");
         }
     }
     private void LKick(InputAction.CallbackContext call)
     {
         InputReader(INPUTS.lk);
+        if (charState == STATES.standing)
+        {
+            anim = ATTACKS.standkick;
+            animLength = 21;
+            animLock = new FrameTimer(animLength, OnAnimComplete);
+            readInput = false;
+            charAni.character.SetTrigger("kick");
+        }
+        else if (charState == STATES.jumping)
+        {
+            anim = ATTACKS.jumpkick;
+            animLength = 29;
+            animLock = new FrameTimer(animLength, OnAnimComplete);
+            readInput = false;
+            charAni.character.SetTrigger("kick");
+        }
+        else if (charState == STATES.crouching)
+        {
+            anim = ATTACKS.crouchkick;
+            animLength = 26;
+            animLock = new FrameTimer(animLength, OnAnimComplete);
+            readInput = false;
+            charAni.character.SetTrigger("kick");
+        }
     }
 
     private void OnEnable()
     {
         LP.action.started += LPunch;
         LK.action.started += LKick;
-        MP.action.started += MPunch;
-        MK.action.started += MKick;
-        HP.action.started += HPunch;
-        HK.action.started += HKick;
-    }
 
-    private void MKick(InputAction.CallbackContext obj)
-    {
-        InputReader(INPUTS.mk);
-    }
 
-    private void MPunch(InputAction.CallbackContext obj)
-    {
-        InputReader(INPUTS.mp);
     }
 
     private void OnDisable()
     {
         LP.action.started -= LPunch;
         LK.action.started -= LKick;
-        MP.action.started -= MPunch;
-        MK.action.started -= MKick;
-        HP.action.started -= HPunch;
-        HK.action.started -= HKick;
+
     }
 
-    private void HKick(InputAction.CallbackContext obj)
-    {
-        InputReader(INPUTS.hk);
-    }
 
-    private void HPunch(InputAction.CallbackContext obj)
-    {
-        InputReader(INPUTS.hp);
-    }
 
     public void SpecialValidation()
     {
         if (charState == STATES.standing && readInput) // test only if in valid state and inputs are read
-            for (int i = 0; i < inputHistory.Count; i++)
+            for (int i = inputHistory.Count - 1; i >= 0; i--)
             {
                 // needs redoing
 
@@ -261,12 +287,20 @@ public class InputStreamer : MonoBehaviour
                 //        readInput = false;
                 //    }
                 //}
+
+                if (inputHistory[i] == INPUTS.lk && i >= 3)
+                {
+
+                }
                 #endregion
             }
     }
 
     private void Update()
     {
+        if (jumping)
+            jumpTimer.Update();
+
 
         if (readInput)
             InputReading();
@@ -280,8 +314,9 @@ public class InputStreamer : MonoBehaviour
             }
 
 
+
         SpecialValidation();
-        special.text = anim.ToString();
+        //special.text = anim.ToString();
     }
 
     private void InputReader(INPUTS input)

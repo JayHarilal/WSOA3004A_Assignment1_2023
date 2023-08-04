@@ -9,7 +9,7 @@ public class SceneChangeOnShift : MonoBehaviour
     void Update()
     {
         // Check if the left Shift or right Shift key is pressed
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             // Load the specified scene
             SceneManager.LoadScene(sceneNameToLoad);

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OpponentHealth : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class OpponentHealth : MonoBehaviour
     public int currentHealth;
 
     public Slider healthSlider;
+
+    public GameObject chara;
 
     void Start()
     {
@@ -36,5 +39,17 @@ public class OpponentHealth : MonoBehaviour
             currentHealth = maxHealth;
         // Update the slider value based on current health and maximum health
         healthSlider.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            chara.GetComponent<SpriteRenderer>().enabled = false;
+            Invoke("GameOver", 1.5f);
+        }
+
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene("ContinueScene");
     }
 }

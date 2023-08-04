@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraControl : MonoBehaviour
 {
     public Transform character1; // The first character to follow
     public Transform character2; // The second character to follow

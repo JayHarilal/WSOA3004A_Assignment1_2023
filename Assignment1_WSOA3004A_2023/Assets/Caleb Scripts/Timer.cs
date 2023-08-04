@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour
     private void Update()
     {
         gameTimer.Update();
+
         timerText.text = timeRemaining.ToString();
     }
 
@@ -24,7 +26,14 @@ public class Timer : MonoBehaviour
     {
         Debug.Log("[Timer] OnComplete Timer Callback");
         timeRemaining--;
-        if (timeRemaining > 0)
+        if (timeRemaining <= 0)
+            Invoke("GameOver", 1.5f);
+        else
             gameTimer = new FrameTimer(60, OnTimerComplete);
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene("ContinueScene");
     }
 }

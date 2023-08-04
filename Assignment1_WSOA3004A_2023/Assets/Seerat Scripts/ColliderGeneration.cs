@@ -1,24 +1,15 @@
 using UnityEngine;
 
-public class BoxColliderFromTransforms : MonoBehaviour
+public class ColliderGeneration : MonoBehaviour
 {
     public Transform topLeftCorner; // Assign in the Inspector
     public Transform bottomRightCorner; // Assign in the Inspector
     public GameObject targetGameObject; // Assign in the Inspector
 
+    public GameObject instancedCollider;
+
     void Start()
     {
-        if (topLeftCorner == null || bottomRightCorner == null)
-        {
-            Debug.LogError("Please assign both top-left and bottom-right transforms.");
-            return;
-        }
-
-        if (targetGameObject == null)
-        {
-            Debug.LogError("Please assign the target GameObject where the Box Collider will be instantiated.");
-            return;
-        }
 
         // Calculate the size and center of the box collider
         Vector3 size = new Vector3(
@@ -33,9 +24,13 @@ public class BoxColliderFromTransforms : MonoBehaviour
             (topLeftCorner.position.z + bottomRightCorner.position.z) / 2f
         );
 
+        instancedCollider = Instantiate(targetGameObject, center, Quaternion.identity);
+
         // Instantiate the Box Collider on the target GameObject
-        BoxCollider boxCollider = targetGameObject.AddComponent<BoxCollider>();
+        BoxCollider boxCollider = instancedCollider.AddComponent<BoxCollider>();
         boxCollider.size = size;
         boxCollider.center = center;
+
+        instancedCollider.SetActive(false);
     }
 }
