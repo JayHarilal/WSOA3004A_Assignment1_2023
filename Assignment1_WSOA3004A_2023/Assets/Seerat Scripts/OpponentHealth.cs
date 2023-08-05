@@ -42,8 +42,9 @@ public class OpponentHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            chara.GetComponent<SpriteRenderer>().enabled = false;
-            Invoke("GameOver", 1.5f);
+            Time.timeScale = 0.5f;
+            chara.GetComponent<Animator>().Play("KNOCKDOWNDEAD");
+            Invoke("GameOver", 0.6f);
         }
 
     }

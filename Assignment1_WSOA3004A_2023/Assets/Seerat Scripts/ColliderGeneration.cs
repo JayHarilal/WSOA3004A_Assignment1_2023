@@ -31,7 +31,7 @@ public class ColliderGeneration : MonoBehaviour
 
     public Vector2 NewPos()
     {
-        Vector2 pos = Vector2.zero;
+        Vector2 pos;
 
         pos = new Vector2(
             Mathf.Lerp(topLeftCorner.position.x, bottomRightCorner.position.x, 0.5f),
