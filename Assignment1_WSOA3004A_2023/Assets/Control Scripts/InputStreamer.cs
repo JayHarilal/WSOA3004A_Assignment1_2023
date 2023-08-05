@@ -51,6 +51,8 @@ public class InputStreamer : MonoBehaviour
     private FrameTimer animLock; // timer which locks control until end of attack
     public bool jumping = false;
     public FrameTimer jumpTimer;
+    public FrameTimer hadoTimer;
+    public bool hadoken;
     public CharacterAnimation charAni;
 
     public ColliderGeneration SP;
@@ -61,6 +63,7 @@ public class InputStreamer : MonoBehaviour
     public ColliderGeneration CK;
     public ColliderGeneration T;
     public ColliderGeneration S;
+    public ColliderGeneration H;
 
     public ATTACKS anim = ATTACKS.none; // stores which special is being used
 
@@ -133,6 +136,7 @@ public class InputStreamer : MonoBehaviour
         if (T.instancedCollider != null)
             if (T.instancedCollider.activeSelf)
                 Destroy(T.instancedCollider);
+
     }
 
 
@@ -361,6 +365,7 @@ public class InputStreamer : MonoBehaviour
             InputReading();
         else
         {
+
             animLock.Update();
             if (anim == ATTACKS.standpunch)
             {
@@ -442,6 +447,11 @@ public class InputStreamer : MonoBehaviour
                 else
                     S.Generate();
             }
+            else if (anim == ATTACKS.hadoken)
+            {
+                hadoTimer = new FrameTimer(2, OnHadoStartComplete);
+                hadoken = true;
+            }
         }
 
         if (clearTimers.Count > 0)
@@ -449,6 +459,36 @@ public class InputStreamer : MonoBehaviour
             {
                 timer.Update();
             }
+
+        if (hadoken)
+            hadoTimer.Update();
+    }
+
+    private void OnHadoStartComplete()
+    {
+        hadoken = false;
+        if (H.instancedCollider != null)
+            if (!H.instancedCollider.activeSelf)
+                H.Generate();
+            else
+                H.instancedCollider.transform.position = H.NewPos();
+        else
+            H.Generate();
+
+        hadoTimer = new FrameTimer(60, OnHadoTravelComplete);
+    }
+
+    private void OnHadoTravelComplete()
+    {
+        H.GetComponent<Animator>().SetTrigger("Hit");
+        hadoTimer = new FrameTimer(21, OnHadoHitComplete);
+    }
+
+    public void OnHadoHitComplete()
+    {
+        if (H.instancedCollider != null)
+            if (H.instancedCollider.activeSelf)
+                Destroy(H.instancedCollider);
     }
 
     private void InputReader(INPUTS input)

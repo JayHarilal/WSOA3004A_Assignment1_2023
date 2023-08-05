@@ -9,6 +9,7 @@ public class ColliderGeneration : MonoBehaviour
     public GameObject targetGameObject; // Assign in the Inspector
 
     public GameObject instancedCollider;
+    public bool fireball = true;
 
     public void Generate()
     {
@@ -24,9 +25,14 @@ public class ColliderGeneration : MonoBehaviour
 
         // Instantiate the Box Collider on the target GameObject
         BoxCollider2D boxCollider = instancedCollider.AddComponent<BoxCollider2D>();
-        boxCollider.size = size;
-        boxCollider.offset = new Vector2(0.2f, 0);
+        if (!fireball)
+            boxCollider.size = size;
+        else
+            boxCollider.size = new Vector2(0.16f, 0.07f);
+        if (!fireball)
+            boxCollider.offset = new Vector2(0.2f, 0);
         boxCollider.isTrigger = true;
+
     }
 
     public Vector2 NewPos()
