@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+
 
 public class ColliderGeneration : MonoBehaviour
 {
@@ -8,29 +10,33 @@ public class ColliderGeneration : MonoBehaviour
 
     public GameObject instancedCollider;
 
-    void Start()
+    public void Generate()
     {
 
         // Calculate the size and center of the box collider
-        Vector3 size = new Vector3(
-            Mathf.Abs(topLeftCorner.position.x - bottomRightCorner.position.x),
-            Mathf.Abs(topLeftCorner.position.y - bottomRightCorner.position.y),
-            Mathf.Abs(topLeftCorner.position.z - bottomRightCorner.position.z)
+        Vector2 size = new Vector2(
+            Mathf.Abs(bottomRightCorner.position.x - topLeftCorner.position.x),
+            Mathf.Abs(bottomRightCorner.position.y - topLeftCorner.position.y)
         );
 
-        Vector3 center = new Vector3(
-            (topLeftCorner.position.x + bottomRightCorner.position.x) / 2f,
-            (topLeftCorner.position.y + bottomRightCorner.position.y) / 2f,
-            (topLeftCorner.position.z + bottomRightCorner.position.z) / 2f
-        );
 
-        instancedCollider = Instantiate(targetGameObject, center, Quaternion.identity);
+        instancedCollider = Instantiate(targetGameObject, NewPos(), Quaternion.identity);
 
         // Instantiate the Box Collider on the target GameObject
-        BoxCollider boxCollider = instancedCollider.AddComponent<BoxCollider>();
+        BoxCollider2D boxCollider = instancedCollider.AddComponent<BoxCollider2D>();
         boxCollider.size = size;
-        boxCollider.center = center;
+        boxCollider.offset = new Vector2(0.2f, 0);
+        boxCollider.isTrigger = true;
+    }
 
-        instancedCollider.SetActive(false);
+    public Vector2 NewPos()
+    {
+        Vector2 pos = Vector2.zero;
+
+        pos = new Vector2(
+            Mathf.Lerp(topLeftCorner.position.x, bottomRightCorner.position.x, 0.5f),
+            Mathf.Lerp(topLeftCorner.position.y, bottomRightCorner.position.y, 0.5f));
+
+        return pos;
     }
 }

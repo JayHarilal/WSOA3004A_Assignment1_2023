@@ -581,7 +581,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4409237116664981184, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
     - {fileID: 6581207996085309857, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6881511138568605425, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 198940287}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
 --- !u!4 &44856249 stripped
@@ -1673,6 +1676,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &198940286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198940287}
+  m_Layer: 0
+  m_Name: Fireball
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198940287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198940286}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 820158312}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &207466527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1746,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207466527}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9f6094be206a6d48b47468732672d28, type: 3}
   m_Name: 
@@ -2999,6 +3033,7 @@ GameObject:
   - component: {fileID: 361966105}
   - component: {fileID: 361966108}
   - component: {fileID: 361966109}
+  - component: {fileID: 361966110}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3083,6 +3118,21 @@ MonoBehaviour:
   object2: {fileID: 531211676}
   Player: {fileID: 864598760}
   Opp: {fileID: 87887509}
+  input: {fileID: 1511711708}
+--- !u!114 &361966110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361966104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66ef65457409ca45a11ae0be17bfdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 531211677}
+  Hurtbox: {fileID: 1123853186}
 --- !u!1 &369040507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,6 +4468,11 @@ SpriteRenderer:
 --- !u!4 &531211676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4740064506640899089, guid: a506be0164a15bb4787006ec6a6649cb, type: 3}
+  m_PrefabInstance: {fileID: 340458332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &531211677 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -3146537799365509334, guid: a506be0164a15bb4787006ec6a6649cb, type: 3}
   m_PrefabInstance: {fileID: 340458332}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &532357560
@@ -6947,6 +7002,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &820158312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6881511138568605425, guid: 4648046d725c2cd4f9af5bac473ee2ea, type: 3}
+  m_PrefabInstance: {fileID: 44856248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832068549
 GameObject:
   m_ObjectHideFlags: 0
@@ -11887,6 +11947,14 @@ MonoBehaviour:
   inputHistory: 
   jumping: 0
   charAni: {fileID: 361966108}
+  SP: {fileID: 1070083994}
+  SK: {fileID: 44308586}
+  JP: {fileID: 40363732}
+  JK: {fileID: 440727299}
+  CP: {fileID: 1071979628}
+  CK: {fileID: 534422322}
+  T: {fileID: 1825455565}
+  S: {fileID: 234006820}
   anim: 9
   animLength: 0
   readInput: 1
@@ -12649,7 +12717,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646683999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9f6094be206a6d48b47468732672d28, type: 3}
   m_Name: 

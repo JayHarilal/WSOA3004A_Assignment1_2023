@@ -8,6 +8,7 @@ public class CharacterFlip : MonoBehaviour
     public GameObject Player;
     public GameObject Opp;
     private bool right;
+    public InputStreamer input;
 
 
     void Update()
@@ -34,11 +35,13 @@ public class CharacterFlip : MonoBehaviour
         {
             object1.transform.rotation = Quaternion.Euler(0, 180, 0);
             object2.transform.rotation = Quaternion.Euler(0, 0, 0);
+            input.facingRight = false;
         }
         else
         {
             object1.transform.rotation = Quaternion.Euler(0, 0, 0);
             object2.transform.rotation = Quaternion.Euler(0, 180, 0);
+            input.facingRight = true;
         }
     }
 }
